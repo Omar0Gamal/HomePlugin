@@ -12,7 +12,7 @@ public class Events implements Listener{
         if(Main.getInstance().getDb().isPlayerInDb(e.getPlayer().getUniqueId())){
             return;
         }else{
-            Main.getInstance().getDb().addPlayer(e.getPlayer().getUniqueId());
+            Main.getInstance().getDb().AddPlayer(e.getPlayer().getUniqueId());
         }
 
     }

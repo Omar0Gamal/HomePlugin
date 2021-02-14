@@ -13,7 +13,7 @@ public class SetHomeTest  implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if(args.length != 0){
-                Main.getInstance().getDb().addHome(p.getUniqueId(),p.getLocation(),args[0]);
+                Main.getInstance().getDb().AddHome(p.getUniqueId(),p.getLocation(),args[0]);
                 p.sendMessage("Your home: "+ args[0] +" has been added");
             }
         }
