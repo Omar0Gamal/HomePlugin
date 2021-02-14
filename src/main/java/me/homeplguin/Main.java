@@ -2,23 +2,24 @@ package me.homeplguin;
 
 import me.homeplguin.Commands.HomeTest;
 import me.homeplguin.Commands.SetHomeTest;
-import me.homeplguin.Sql.Database;
+import me.homeplguin.Sql.DataBaseHikrioCp;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.HashMap;
-import java.util.UUID;
 
 
 public final class Main extends JavaPlugin {
     private static Main instance;
-    public static HashMap<UUID,Boolean> players = new HashMap<UUID,Boolean>();
-    private Database db = new Database();
+
+    public DataBaseHikrioCp getDb() {
+        return db;
+    }
+
+    private DataBaseHikrioCp db = new DataBaseHikrioCp();
 
     @Override
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
-        db.checkConnection();
+        db.connectToDatabase();
         this.getCommand("SetHomeTest").setExecutor(new SetHomeTest());
         this.getCommand("HomeTest").setExecutor(new HomeTest());
         getServer().getPluginManager().registerEvents(new Events() ,this);
