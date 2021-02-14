@@ -9,10 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.sql.*;
-import java.util.HashMap;
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class DataBaseHikrioCp {
 
@@ -29,7 +26,7 @@ public class DataBaseHikrioCp {
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
         config.addDataSourceProperty("useServerPrepStmts", "true");
-        HikariDataSource hikari = new HikariDataSource(config);
+        hikari = new HikariDataSource(config);
 
         hikari.setMaximumPoolSize(10);
         hikari.setDataSourceClassName("org.mariadb.jdbc.MariaDbDataSource");
