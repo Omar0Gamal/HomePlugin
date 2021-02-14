@@ -1,0 +1,13 @@
+name: HomePlugin
+version: ${project.version}
+main: me.homeplguin.Main
+api-version: 1.16
+authors: [ BlackGoldytc ]
+description: Home Plugin
+commands:
+  SetHomeTest:
+    description: let you Set your Home
+    usage: /<command> <NameOFTheHome>
+  HomeTest:
+    description: let you teleport to your Home
+    usage: /<command> <NameOFTheHome>
