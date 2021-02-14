@@ -165,39 +165,4 @@ public class DataBaseHikrioCp {
         }
         return false;
     }
-
-    public void runAsyncQuery(UUID playerUUID) {
-
-        Connection connection = null;
-
-        String update = "INSERT INTO database VALUES(?, ?) ON DUPLICATE KEY UPDATE uuid=?";
-
-        PreparedStatement p = null;
-
-        try {
-            connection = hikari.getConnection();
-            p = connection.prepareStatement(update);
-            p.setString(1, playerUUID.toString());
-            p.setInt(2, 0);
-            p.setString(3, playerUUID.toString());
-            p.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if(p != null) {
-                try {
-                    p.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 }
