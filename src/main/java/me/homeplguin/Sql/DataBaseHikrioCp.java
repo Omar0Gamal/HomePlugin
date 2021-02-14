@@ -40,6 +40,10 @@ public class DataBaseHikrioCp {
         hikari.addDataSourceProperty("password", password);
     }
 
+    public void CloseConnection(){
+        hikari.close();
+    }
+
     public Location getHome(UUID uuid, String name) {
         PreparedStatement p = null;
         ResultSet rs = null;

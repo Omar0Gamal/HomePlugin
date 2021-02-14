@@ -27,6 +27,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        db.CloseConnection();
     }
 
     public static Main getInstance(){
