@@ -15,8 +15,10 @@ public class HomeTest implements CommandExecutor {
             Player p = (Player) sender;
             if (args.length != 0) {
                 Location loc = Main.getInstance().getDb().getHome(p.getUniqueId(),args[0]);
-                p.teleport(loc);
-                return true;
+                if(loc != null) {
+                    p.teleport(loc);
+                    return true;
+                }
             }
         }
         return true;

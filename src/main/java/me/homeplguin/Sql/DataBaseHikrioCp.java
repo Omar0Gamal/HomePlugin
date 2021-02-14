@@ -14,7 +14,6 @@ import java.util.UUID;
 public class DataBaseHikrioCp {
 
     private HikariDataSource hikari;
-    private HikariConfig config;
 
     public void connectToDatabase() {
 
@@ -22,11 +21,7 @@ public class DataBaseHikrioCp {
         String name = Utlis.GetDatabase();
         String username = Utlis.GetUsername();
         String password = Utlis.GetPassword();
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-        config.addDataSourceProperty("useServerPrepStmts", "true");
-        hikari = new HikariDataSource(config);
+        hikari = new HikariDataSource();
 
         hikari.setMaximumPoolSize(10);
         hikari.setDataSourceClassName("org.mariadb.jdbc.MariaDbDataSource");
@@ -45,7 +40,7 @@ public class DataBaseHikrioCp {
         PreparedStatement p = null;
         ResultSet rs = null;
         Connection c = null;
-        String update = "SELECT * FROM `" + uuid.toString() + "` WHERE HomeName = '" + name + "';";
+        String update = "SELECT * FROM `" + uuid.toString() + "` WHERE `HomeName` = '" + name + "';";
         try {
             c = hikari.getConnection();
             p = c.prepareStatement(update);
@@ -72,8 +67,8 @@ public class DataBaseHikrioCp {
                     e.printStackTrace();
                 }
             }
-            return null;
         }
+        return null;
     }
 
     public boolean isPlayerInDb(UUID uuid) {
