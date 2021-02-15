@@ -4,3 +4,14 @@ sql:
   username: "root"
   password: ""
   database: ""
+Settings:
+  TeleportTimer: 5
+Message:
+  InitTeleport: "You Are being teleported To your Home Stand still For 5 Seconds"
+  StartTeleport: "You will Teleported in:"
+  PostTeleport: "You Have Been Teleported To your Home"
+  NoHomeWithName: "You Don't Have Home With that name"
+  SetHome: "Your Home Has been set"
+  AirSetHome: "You can't set a home while in air of falling"
+  CancelTeleport: "Your Teleport Has been canceled"
+  SettingHomeWithoutAName: "You need to specify a name"

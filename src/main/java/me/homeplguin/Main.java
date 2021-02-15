@@ -2,6 +2,7 @@ package me.homeplguin;
 
 import me.homeplguin.Commands.HomeTest;
 import me.homeplguin.Commands.SetHomeTest;
+import me.homeplguin.Events.OnPlayerJoinEvent;
 import me.homeplguin.Sql.DataBaseHikrioCp;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,7 +23,7 @@ public final class Main extends JavaPlugin {
         db.connectToDatabase();
         this.getCommand("SetHomeTest").setExecutor(new SetHomeTest());
         this.getCommand("HomeTest").setExecutor(new HomeTest());
-        getServer().getPluginManager().registerEvents(new Events() ,this);
+        getServer().getPluginManager().registerEvents(new OnPlayerJoinEvent() ,this);
     }
 
     @Override
